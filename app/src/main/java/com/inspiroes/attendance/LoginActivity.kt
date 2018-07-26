@@ -20,9 +20,9 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        val pref = getSharedPreferences("event",0)
-        val token=pref.getString("access_token","")
-        if(token!=""){
+        val pref = getSharedPreferences("event", 0)
+        val token = pref.getString("access_token", "")
+        if (token != "") {
             startActivity(intentFor<EventsActivity>())
             finish()
         }
@@ -41,7 +41,7 @@ class LoginActivity : AppCompatActivity() {
 
     fun login() {
 
-        progress.visibility=View.VISIBLE
+        progress.visibility = View.VISIBLE
 
         doAsync {
             val body = FormBody.Builder()
@@ -60,7 +60,7 @@ class LoginActivity : AppCompatActivity() {
 
             uiThread {
 
-                progress.visibility=View.INVISIBLE
+                progress.visibility = View.INVISIBLE
 
                 when (response.code()) {
                     200 -> {
@@ -69,9 +69,9 @@ class LoginActivity : AppCompatActivity() {
                             val accessToken = jsonResponse.getString("access_token")
 
 
-                            val pref = getSharedPreferences("event",0)
-                            val editor=pref.edit()
-                            editor.putString("access_token",accessToken)
+                            val pref = getSharedPreferences("event", 0)
+                            val editor = pref.edit()
+                            editor.putString("access_token", accessToken)
                             editor.apply()
 
                             startActivity(intentFor<EventsActivity>())
@@ -83,7 +83,7 @@ class LoginActivity : AppCompatActivity() {
                         AlertDialog.Builder(this@LoginActivity)
                                 .setTitle("Error")
                                 .setMessage("An error is occured")
-                                .setNeutralButton("OK"){dialog,which -> dialog.dismiss()}
+                                .setNeutralButton("OK") { dialog, which -> dialog.dismiss() }
                                 .show()
 
                     }

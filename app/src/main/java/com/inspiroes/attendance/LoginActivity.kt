@@ -3,8 +3,8 @@ package com.inspiroes.attendance
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.app.AlertDialog
-import android.util.Log
 import android.view.View
+import com.inspiroes.attendance.Event.EventsActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import okhttp3.FormBody
 import okhttp3.OkHttpClient

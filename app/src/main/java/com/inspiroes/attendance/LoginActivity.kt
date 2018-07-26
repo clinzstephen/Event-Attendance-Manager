@@ -60,7 +60,6 @@ class LoginActivity : AppCompatActivity() {
                             val jsonResponse = JSONObject(response.body()!!.string())
                             val accessToken = jsonResponse.getString("access_token")
 
-                            Log.d("Access Token", accessToken)
 
                             val pref = getSharedPreferences()
 

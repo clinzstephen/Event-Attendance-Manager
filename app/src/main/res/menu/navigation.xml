@@ -19,6 +19,6 @@
     <item
         android:id="@+id/navigation_members_list"
         android:icon="@drawable/members_list"
-        android:title="Scan QR code" />
+        android:title="Members" />
 
 </menu>
